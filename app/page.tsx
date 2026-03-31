@@ -1,9 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function Portfolio() {
+  const [darkMode, setDarkMode] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
   const projects = [
     {
       title: "Secure Image Steganography",
@@ -22,14 +28,26 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div
+      className={`min-h-screen ${
+        darkMode ? "bg-black text-white" : "bg-white text-black"
+      }`}
+    >
       {/* Navbar */}
       <nav className="flex justify-between items-center p-6 border-b border-gray-800">
         <h1 className="text-xl font-bold">Gopinath</h1>
-        <div className="flex gap-6">
+        <div className="flex gap-6 items-center">
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
+
+          {/* Toggle Button */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="border px-3 py-1 rounded"
+          >
+            {darkMode ? "☀️" : "🌙"}
+          </button>
         </div>
       </nav>
 
@@ -43,7 +61,7 @@ export default function Portfolio() {
           Gopinath Karmakar
         </motion.h1>
         <p className="text-xl mt-3">Software Developer | M-Tech CSE</p>
-        <p className="mt-4 text-gray-400">
+        <p className="mt-4 text-gray-400 dark:text-gray-400">
           I build secure and scalable web applications.
         </p>
 
@@ -51,11 +69,7 @@ export default function Portfolio() {
           <a href="#contact" className="bg-blue-500 px-4 py-2 rounded">
             Hire Me
           </a>
-          <a
-            href="/resume.pdf"
-            className="border px-4 py-2 rounded"
-            download
-          >
+          <a href="/resume.pdf" className="border px-4 py-2 rounded" download>
             Download Resume
           </a>
         </div>
@@ -69,16 +83,18 @@ export default function Portfolio() {
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="bg-gray-900 p-5 rounded-2xl shadow"
+              className={`p-5 rounded-2xl shadow ${
+                darkMode ? "bg-gray-900" : "bg-gray-200"
+              }`}
             >
               <h3 className="text-xl font-bold">{p.title}</h3>
-              <p className="text-gray-400 mt-2">{p.desc}</p>
+              <p className="mt-2 text-gray-500">{p.desc}</p>
               <p className="mt-2 text-sm">Tech: {p.tech}</p>
               <div className="mt-3 flex gap-3">
-                <a href={p.github} className="text-blue-400">
+                <a href={p.github} className="text-blue-500">
                   GitHub
                 </a>
-                <a href={p.demo} className="text-green-400">
+                <a href={p.demo} className="text-green-500">
                   Live Demo
                 </a>
               </div>
@@ -103,7 +119,9 @@ export default function Portfolio() {
           ].map((skill) => (
             <span
               key={skill}
-              className="bg-gray-800 px-3 py-1 rounded-full text-sm"
+              className={`px-3 py-1 rounded-full text-sm ${
+                darkMode ? "bg-gray-800" : "bg-gray-300"
+              }`}
             >
               {skill}
             </span>
@@ -115,7 +133,7 @@ export default function Portfolio() {
       <section id="contact" className="py-12 px-6">
         <h2 className="text-3xl font-semibold mb-4">Contact</h2>
         <p>Email: gopinathkarmakarmit@gmail.com</p>
-        <p>GitHub: github.com/yourprofile</p>
+        <p>GitHub: github.com/Gopinath-Karmakar</p>
         <p>LinkedIn: linkedin.com/in/yourprofile</p>
       </section>
 
