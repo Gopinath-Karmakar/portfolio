@@ -66,9 +66,12 @@ export default function Portfolio() {
         </p>
 
         <div className="mt-6 flex justify-center gap-4">
-          <a href="#contact" className="bg-blue-500 px-4 py-2 rounded">
-            Hire Me
-          </a>
+      <a
+  href="mailto:gopinathkarmakarmit@gmail.com?subject=Hiring Opportunity&body=Hello Gopinath, I would like to discuss a job opportunity with you."
+  className="bg-blue-500 px-4 py-2 rounded"
+>
+  Hire Me
+</a>
           <a href="/resume.pdf" className="border px-4 py-2 rounded" download>
             Download Resume
           </a>
