@@ -133,12 +133,38 @@ export default function Portfolio() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-12 px-6">
-        <h2 className="text-3xl font-semibold mb-4">Contact</h2>
-        <p>Email: gopinathkarmakarmit@gmail.com</p>
-        <p>GitHub: github.com/Gopinath-Karmakar</p>
-        <p>LinkedIn: linkedin.com/in/yourprofile</p>
-      </section>
+      <form
+  action="https://formspree.io/f/xqeglnyv"
+  method="POST"
+  className="flex flex-col gap-4 max-w-md"
+>
+  <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required
+className="p-3 rounded border border-gray-400 bg-white text-black dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"  />
+
+  <input
+    type="email"
+    name="email"
+    placeholder="Your Email"
+    required
+className="p-3 rounded border border-gray-400 bg-white text-black dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"  />
+
+  <textarea
+    name="message"
+    placeholder="Your Message"
+    required
+className="p-3 rounded border border-gray-400 bg-white text-black dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"  />
+
+  <button
+    type="submit"
+    className="bg-blue-500 px-4 py-2 rounded"
+  >
+    Send Message
+  </button>
+</form>
 
       {/* Footer */}
       <footer className="text-center py-6 text-gray-500">
