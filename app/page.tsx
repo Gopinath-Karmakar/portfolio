@@ -15,8 +15,8 @@ export default function Portfolio() {
       title: "Secure Image Steganography",
       desc: "Hide encrypted data inside images using AES encryption.",
       tech: "Python, AES, Web",
-      github: "#",
-      demo: "#",
+      github: "https://github.com/Gopinath-Karmakar/securesteganography",
+      demo: "https://securesteganography.onrender.com",
     },
     {
       title: "Weather App",
